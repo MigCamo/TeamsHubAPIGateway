@@ -24,12 +24,17 @@
         }
       ],
       "UpstreamPathTemplate": "/TeamHub/Projects/MyProjects/{startDate}/{endDate}",
-      "UpstreamHttpMethod": [
-        "Get"
-      ]
+      "UpstreamHttpMethod": ["Get"],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": ["CursosAPP"]                
+      },
+      "RouteClaimsRequirement": {
+        "puesto": "Administrador"
+      }
     },
     {
-      "DownstreamPathTemplate": "/TeamHub/Projects/MyProjects",
+      "DownstreamPathTemplate": "/TeamHub/Projects/MyProjects/{studentID}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -37,10 +42,15 @@
           "Port": 5200
         }
       ],
-      "UpstreamPathTemplate": "/TeamHub/Projects/MyProjects",
-      "UpstreamHttpMethod": [
-        "Get"
-      ]
+      "UpstreamPathTemplate": "/TeamHub/Projects/MyProjects/{studentID}",
+      "UpstreamHttpMethod": ["Get"],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": ["CursosAPP"]                
+      },
+      "RouteClaimsRequirement": {
+        "puesto": "Administrador"
+      }
     },
     {
       "DownstreamPathTemplate": "/TeamHub/Projects/AddProject",

@@ -49,3 +49,4 @@ D:\Workspace-C#\TeamsHubAPIGateway\obj\Debug\net8.0\refint\TeamsHubAPIGateway.dl
 D:\Workspace-C#\TeamsHubAPIGateway\obj\Debug\net8.0\TeamsHubAPIGateway.pdb
 D:\Workspace-C#\TeamsHubAPIGateway\obj\Debug\net8.0\TeamsHubAPIGateway.genruntimeconfig.cache
 D:\Workspace-C#\TeamsHubAPIGateway\obj\Debug\net8.0\ref\TeamsHubAPIGateway.dll
+d:\Workspace-C#\TeamsHubAPIGateway\obj\Debug\net8.0\TeamsHubAPIGateway.sourcelink.json
