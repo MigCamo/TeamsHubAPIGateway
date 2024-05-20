@@ -1,5 +1,6 @@
 {
   "Routes": [
+
     {
       "DownstreamPathTemplate": "/TeamHub/Sessions/validateUser",
       "DownstreamScheme": "http",
@@ -14,8 +15,99 @@
         "Post"
       ]
     },
+
+
     {
-      "DownstreamPathTemplate": "/TeamHub/Projects/MyProjects/{startDate}/{endDate}",
+      "DownstreamPathTemplate": "/TeamHub/Task/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.16.0.2",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/TeamHub/Task/",
+      "UpstreamHttpMethod": [
+        "Post"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/TeamHub/Task/get",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.16.0.2",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/TeamHub/Task/get",
+      "UpstreamHttpMethod": [
+        "Post"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/TeamHub/Task/up",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.16.0.2",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/TeamHub/Task/up",
+      "UpstreamHttpMethod": [
+        "Post"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/TeamHub/Task/{TaskName}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.16.0.2",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/TeamHub/Task/{TaskName}",
+      "UpstreamHttpMethod": [
+        "Delete"
+      ]
+    },
+
+
+
+    {
+      "DownstreamPathTemplate": "/TeamHub/File/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.16.0.4",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/TeamHub/File/",
+      "UpstreamHttpMethod": [
+        "Get"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/TeamHub/File/Extension",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.16.0.4",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/TeamHub/File/Extension",
+      "UpstreamHttpMethod": [
+        "Get"
+      ]
+    },
+
+
+    {
+      "DownstreamPathTemplate": "/TeamHub/Projects/MyProjects/{Dates}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -23,7 +115,7 @@
           "Port": 5200
         }
       ],
-      "UpstreamPathTemplate": "/TeamHub/Projects/MyProjects/{startDate}/{endDate}",
+      "UpstreamPathTemplate": "/TeamHub/Projects/MyProjects/{Dates}",
       "UpstreamHttpMethod": ["Get"],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
@@ -93,10 +185,34 @@
       "UpstreamHttpMethod": [
         "Delete"
       ]
+    },
+
+
+    {
+      "DownstreamPathTemplate": "/filePackage.FileManagement/SaveFile",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.16.0.6",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/fileManagement/SaveFile",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DangerousAcceptAnyServerCertificateValidator": true,
+      "HttpHandlerOptions": {
+        "UseTracing": false,
+        "UseCookieContainer": false,
+        "AllowAutoRedirect": false,
+        "UseProxy": true,
+        "MaxConnectionsPerServer": 100,
+        "HttpVersion": "2.0"
+      }
     }
   ],
+
   "GlobalConfiguration": {
-    "BaseUrl": "https://localhost:8001",
+    "BaseUrl": "https://localhost:8080",
     "RateLimitOptions": {
       "ClientWhitelist": [],
       "EnableRateLimiting": true,

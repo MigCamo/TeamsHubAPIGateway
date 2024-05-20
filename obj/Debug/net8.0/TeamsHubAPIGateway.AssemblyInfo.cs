@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TeamsHubAPIGateway")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+03dd64b2a728aa9652125408069c157f504baf02")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c5581eaedb5cba7e5cf83e78145c246b1679f904")]
 [assembly: System.Reflection.AssemblyProductAttribute("TeamsHubAPIGateway")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TeamsHubAPIGateway")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
