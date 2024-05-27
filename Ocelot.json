@@ -42,7 +42,7 @@
       ],
       "UpstreamPathTemplate": "/TeamHub/Task/get",
       "UpstreamHttpMethod": [
-        "Post"
+        "Get"
       ]
     },
     {
@@ -71,6 +71,20 @@
       "UpstreamPathTemplate": "/TeamHub/Task/{TaskName}",
       "UpstreamHttpMethod": [
         "Delete"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/TeamHub/Task/{IdProject}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.16.0.2",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/TeamHub/Task/{IdProject}",
+      "UpstreamHttpMethod": [
+        "Get"
       ]
     },
 
@@ -105,9 +119,9 @@
       ]
     },
 
-
+    
     {
-      "DownstreamPathTemplate": "/TeamHub/Projects/MyProjects/{Dates}",
+      "DownstreamPathTemplate": "/Projects",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -115,15 +129,8 @@
           "Port": 8080
         }
       ],
-      "UpstreamPathTemplate": "/TeamHub/Projects/MyProjects/{Dates}",
-      "UpstreamHttpMethod": ["Get"],
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "Bearer",
-        "AllowedScopes": ["CursosAPP"]                
-      },
-      "RouteClaimsRequirement": {
-        "puesto": "Administrador"
-      }
+      "UpstreamPathTemplate": "/TeamHub/Projects/MyProjects",
+      "UpstreamHttpMethod": ["Get"]
     },
     {
       "DownstreamPathTemplate": "/TeamHub/Projects/MyProjects/{studentID}",
@@ -135,14 +142,31 @@
         }
       ],
       "UpstreamPathTemplate": "/TeamHub/Projects/MyProjects/{studentID}",
-      "UpstreamHttpMethod": ["Get"],
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "Bearer",
-        "AllowedScopes": ["CursosAPP"]                
-      },
-      "RouteClaimsRequirement": {
-        "puesto": "Administrador"
-      }
+      "UpstreamHttpMethod": ["Get"]
+    },
+    {
+      "DownstreamPathTemplate": "/TeamHub/Projects/{idProject}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.16.0.5",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/TeamHub/Projects/{idProject}",
+      "UpstreamHttpMethod": ["Get"]
+    },
+    {
+      "DownstreamPathTemplate": "/TeamHub/Projects/chanceStatus",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.16.0.5",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/TeamHub/Projects/chanceStatus",
+      "UpstreamHttpMethod": ["Post"]
     },
     {
       "DownstreamPathTemplate": "/TeamHub/Projects/AddProject",
@@ -169,7 +193,7 @@
       ],
       "UpstreamPathTemplate": "/TeamHub/Projects/UpdateProject",
       "UpstreamHttpMethod": [
-        "Put"
+        "Post"
       ]
     },
     {
