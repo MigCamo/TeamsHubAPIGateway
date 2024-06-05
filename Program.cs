@@ -7,6 +7,16 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// CORS configuration
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins", builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
 
 builder.Services.AddAuthentication(options => {    
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -26,17 +36,14 @@ builder.Services.AddAuthentication(options => {
         ValidateIssuerSigningKey = true
     };
 });
-builder.Services.AddAuthorization();
 
+builder.Services.AddAuthorization();
 builder.Services.AddAuthorizationBuilder()
-  .AddPolicy("usuario_valido", policy =>
-        policy
-            .RequireRole("Administrador")
-            .RequireClaim("scope", "CursosAPP"));
-builder.Services.AddCors();
+    .AddPolicy("usuario_valido", policy =>
+        policy.RequireRole("Administrador")
+              .RequireClaim("scope", "CursosAPP"));
 
 // Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Configuration.AddJsonFile("Ocelot.json", optional: false, reloadOnChange: true);
 builder.Services.AddOcelot();
 builder.Services.AddEndpointsApiExplorer();
@@ -44,16 +51,16 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
+app.UseCors("AllowAllOrigins");
+
 app.UseAuthentication();
 app.UseAuthorization();
-
 
 app.UseHttpsRedirection();
 
