@@ -42,7 +42,21 @@
       ],
       "UpstreamPathTemplate": "/TeamHub/Task/get",
       "UpstreamHttpMethod": [
-        "Post"
+        "Get"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/TeamHub/Task/getAll",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.16.0.2",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/TeamHub/Task/getAll",
+      "UpstreamHttpMethod": [
+        "Get"
       ]
     },
     {
@@ -73,6 +87,65 @@
         "Delete"
       ]
     },
+
+
+    {
+      "DownstreamPathTemplate": "/TeamHub/Users/ByProject/{idProject}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.16.0.3",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/TeamHub/Users/ByProject/{idProject}",
+      "UpstreamHttpMethod": [
+        "Get"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/TeamHub/Users/RemoveOfProject/{idProject}/{idStudent}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.16.0.3",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/TeamHub/Users/RemoveOfProject/{idProject}/{idStudent}",
+      "UpstreamHttpMethod": [
+        "Delete", "Options"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/TeamHub/Users/AddToProject/{idProject}/{idStudent}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.16.0.3",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/TeamHub/Users/AddToProject/{idProject}/{idStudent}",
+      "UpstreamHttpMethod": [
+        "Post"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/TeamHub/Users/Search/{student}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.16.0.3",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/TeamHub/Users/Search/{student}",
+      "UpstreamHttpMethod": [
+        "Get", "Options"
+      ]
+    },
+    
 
 
 
@@ -116,7 +189,9 @@
         }
       ],
       "UpstreamPathTemplate": "/TeamHub/Projects/MyProjects/{Dates}",
-      "UpstreamHttpMethod": ["Get"],
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": ["CursosAPP"]                
@@ -186,7 +261,34 @@
         "Delete"
       ]
     },
-
+    {
+      "DownstreamPathTemplate": "/TeamHub/Projects/Project/{idProject}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.16.0.5",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/TeamHub/Projects/Project/{idProject}",
+      "UpstreamHttpMethod": [
+        "Get"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/TeamHub/Projects/Project/Tasks/{idProject}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.16.0.5",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/TeamHub/Projects/Project/Tasks/{idProject}",
+      "UpstreamHttpMethod": [
+        "Get"
+      ]
+    },
 
     {
       "DownstreamPathTemplate": "/filePackage.FileManagement/SaveFile",
